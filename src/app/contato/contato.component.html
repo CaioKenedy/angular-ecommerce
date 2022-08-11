@@ -1,0 +1,26 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+  <form class="contact-form" [formGroup]="formContato">
+    <input type="text" placeholder="Digite o seu nome" formControlName="nome" [class.valid]="formContato.controls['nome'].valid" [class.invalid]="formContato.controls['nome'].invalid && (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)">
+    <div *ngIf="formContato.controls['nome'].invalid && (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)">
+
+      <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+        Esse campo precisa de no mínimo 4 caracteres.
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+        Esse campo precisa ser preenchido.
+      </small>
+    </div>
+    <input type="assunto" placeholder="Digite o assunto" />
+
+    <input type="tel" placeholder="(00) 0 0000-0000" />
+    <input type="email" placeholder="Digite o seu e-mail" />
+    <textarea maxlength="300" placeholder="Digite a sua mensagem..."></textarea>
+    <button>Enviar</button>
+  </form>
+  <address>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.8504244481117!2d-38.49658959713249!3d-13.01007224566352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7160350abe4d2e5%3A0x3b7dfc0ba6c43e2f!2sR.%20Alm.%20Barroso%20-%20Rio%20Vermelho%2C%20Salvador%20-%20BA%2C%2041950-350!5e0!3m2!1spt-BR!2sbr!4v1660222311404!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>R. Alm. Barroso - Rio VermelhoSalvador - BA, 41950-350
+    </p>
+  </address>
+</section>
